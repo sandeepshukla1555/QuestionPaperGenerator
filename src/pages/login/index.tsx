@@ -35,26 +35,18 @@ const Login = () => {
   const submited = (e: React.FormEvent) => {
     e.preventDefault();
     if (emailData.value !== '' && passwordData.value !== '') {
-      console.log("Form submitted successfully:", emailData, passwordData);
-      const validate = LOGIN?.filter((item) => {
-        console.log(item);
-      
-        // Check if both email and password match
+      const validate = LOGIN?.filter((item) => {      
         if (item?.email === emailData.value && item?.password === passwordData.value) {
-          return item?.token; // Include this item in the filtered result
+          return item?.token;
         } else {
-          return null; // Exclude this item
+          return null; 
         }
       });
-      console.log("validation of authentic user:", validate[0]?.token);
       validate[0]?.token!==undefined?router.push('/dashboard'):dedaError('Please enter correct email or password')
-      
     } else {
-      console.log("Please fill in all fields");
       dedaError("Please fill in all fields")
     }
   };
-  console.log("================", auth)
   return (
     <div className="relative">
       {formStatus && (

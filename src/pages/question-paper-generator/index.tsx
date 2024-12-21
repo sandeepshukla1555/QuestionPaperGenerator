@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const QuestionPaperGenerator = () => {
-  return (
-    <div>Question Paper Generator</div>
-  )
-}
+  return <div>Question Paper Generator</div>;
+};
 
-export default QuestionPaperGenerator
+export default QuestionPaperGenerator;
