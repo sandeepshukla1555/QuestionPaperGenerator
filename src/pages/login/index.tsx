@@ -15,13 +15,13 @@ const Login = () => {
   const [formStatus, setFormStatus] = useState<any>(false);
   const [emailData, setEmailData] = useState<any>("");
   const [passwordData, setPasswordData] = useState<any>("");
-  const [auth, setAuth] = useState<any>('');
+  const [auth, setAuth] = useState<any>("");
   const router = useRouter();
 
-  const dedaError=(meg:any)=>{
-    setAuth(meg)
+  const dedaError = (meg: any) => {
+    setAuth(meg);
     setFormStatus(true);
-  }
+  };
 
   const mailFun = (e: any) => {
     const { name, value } = e.target;
@@ -34,27 +34,27 @@ const Login = () => {
   };
   const submited = (e: React.FormEvent) => {
     e.preventDefault();
-    if (emailData.value !== '' && passwordData.value !== '') {
-      const validate = LOGIN?.filter((item) => {      
-        if (item?.email === emailData.value && item?.password === passwordData.value) {
+    if (emailData.value !== "" && passwordData.value !== "") {
+      const validate = LOGIN?.filter((item) => {
+        if (
+          item?.email === emailData.value &&
+          item?.password === passwordData.value
+        ) {
           return item?.token;
         } else {
-          return null; 
+          return null;
         }
       });
-      validate[0]?.token!==undefined?router.push('/dashboard'):dedaError('Please enter correct email or password')
+      validate[0]?.token !== undefined
+        ? router.push("/dashboard")
+        : dedaError("Please enter correct email or password");
     } else {
-      dedaError("Please fill in all fields")
+      dedaError("Please fill in all fields");
     }
   };
   return (
     <div className="relative">
-      {formStatus && (
-        <ErrorTost
-          setFormStatus={setFormStatus}
-          message={auth}
-        />
-      )}
+      {formStatus && <ErrorTost setFormStatus={setFormStatus} message={auth} />}
       <Image
         className="w-[calc(100%-50px)] mx-auto mt-5"
         alt="login-hero"
