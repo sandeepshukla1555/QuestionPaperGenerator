@@ -15,7 +15,8 @@ export const GPG = () => {
           alt="banner"
           src={welcomeBanner}
         />
-        <Link href="/login/"
+        <Link
+          href="/login/"
           className="absolute tranform top-64 left-1/2 
         -translate-x-1/2 py-3 px-5 text-stone-800 font-medium 
         text-xl text-center rounded-md shadow-lg mx-auto bg-white
