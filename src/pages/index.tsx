@@ -1,4 +1,4 @@
-import { GPG } from "./GPG";
+import GPG  from "./GPG";
 
 export default function Home() {
   return <GPG/>

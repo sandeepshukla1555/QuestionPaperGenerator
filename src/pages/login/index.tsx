@@ -5,9 +5,9 @@ import { MdOutlineEmail } from "react-icons/md";
 import { MdLockOutline } from "react-icons/md";
 import { MdLogin } from "react-icons/md";
 import { IoMdEye } from "react-icons/io";
-import { ErrorTost } from "../utils/hooks";
-import { LOGIN } from "../utils/data";
 import { useRouter } from "next/router";
+import ErrorTost from "../popup/error-tost";
+import { LOGIN } from "@/utils/data";
 
 const Login = () => {
   const [HSPass, setHSPass] = useState<boolean>(false);

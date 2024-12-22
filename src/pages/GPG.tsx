@@ -1,30 +1,31 @@
-import React from "react";
 import Image from "next/image";
 import welcomeHero from "./images/welcomeHero.jpg";
 import welcomeBanner from "./images/welcomeBanner.png";
 import { FaArrowRight } from "react-icons/fa6";
 import Link from "next/link";
 
-export const GPG = () => {
+const GPG = () => {
   return (
-    <div className="relative h-screen">
-      <Image className="w-4/5 mx-auto mt-20 " alt="Hero" src={welcomeHero} />
+    <div className="relative h-screen pt-20">
+      <Image className="w-4/5 mx-auto" alt="Welcome Hero" src={welcomeHero} />
       <div className="text-center absolute bottom-0 w-full h-[400px]">
         <Image
           className="relative h-[400px]"
-          alt="banner"
+          alt="Welcome Banner"
           src={welcomeBanner}
         />
         <Link
-          href="/login/"
-          className="absolute tranform top-64 left-1/2 
-        -translate-x-1/2 py-3 px-5 text-stone-800 font-medium 
-        text-xl text-center rounded-md shadow-lg mx-auto bg-white
-         flex items-center gap-2 hover:opacity-85"
+          href="/login" // You can omit the trailing slash here unless needed
+          className="absolute transform top-64 left-1/2 
+            -translate-x-1/2 py-2 px-5 text-stone-800 font-medium 
+            text-xl text-center rounded-md shadow-lg mx-auto bg-white
+            flex items-center gap-2 hover:opacity-85"
         >
-          Get Start <FaArrowRight />
+          Get Started <FaArrowRight />
         </Link>
       </div>
     </div>
   );
 };
+
+export default GPG;

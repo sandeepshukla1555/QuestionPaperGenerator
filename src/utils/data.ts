@@ -1,7 +1,13 @@
-export const LOGIN = [
+interface User {
+  email: string;
+  password: string;
+  token: string;
+}
+
+export const LOGIN: User[] = [
   {
     email: "sandeepshukla@gmail.com",
-    password: "123sandeep123",
+    password: "123sandeep123", // In production, never store plain passwords like this
     token: "1234wgvrgdy73849jn",
   },
   {
