@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineLogout } from "react-icons/ai";
+import { BiLogOut } from "react-icons/bi";
 
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
      <div className="flex justify-center items-center w-8 h-8 rounded-full bg-stone-100 text-stone-800 font-extrabold shadow-xl">S</div>
      <div className="text-lg font-medium text-stone-800">Dasboard</div>
      </div>
-     <button className="flex items-center gap-2 hover:opacity-85"><AiOutlineLogout className="text-2xl text-red-500"/>Logout</button>
+     <button className="flex items-center gap-2 hover:opacity-85"><BiLogOut className="text-2xl text-red-500"/>Logout</button>
   </div>
   </>);
 };

@@ -10,44 +10,47 @@ import { LOGIN } from "../utils/data";
 import { useRouter } from "next/router";
 
 const Login = () => {
-  const [HSPass, setHSPass] = useState<any>(false);
-  const [showPassword, setShowPassword] = useState<any>(false);
-  const [formStatus, setFormStatus] = useState<any>(false);
-  const [emailData, setEmailData] = useState<any>("");
-  const [passwordData, setPasswordData] = useState<any>("");
-  const [auth, setAuth] = useState<any>("");
+  const [HSPass, setHSPass] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [formStatus, setFormStatus] = useState<boolean>(false);
+  const [emailData, setEmailData] = useState<string>("");
+  const [passwordData, setPasswordData] = useState<string>("");
+  const [auth, setAuth] = useState<string>("");
   const router = useRouter();
 
-  const dedaError = (meg: any) => {
+  const dedaError = (meg: string) => {
     setAuth(meg);
     setFormStatus(true);
   };
 
-  const mailFun = (e: any) => {
-    const { name, value } = e.target;
-    setEmailData({ value });
+  const mailFun = (e: React.ChangeEvent<HTMLInputElement>): void=> {
+    const { value } = e.target;
+    setEmailData(value);
   };
-  const hideShowIcon = (e: any) => {
-    const { name, value } = e.target;
-    value !== "" ? setHSPass(true) : setHSPass(false);
-    setPasswordData({ value });
+  const hideShowIcon = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const { value } = e.target;
+    if (value !== "") {
+      setHSPass(true);
+    } else {
+      setHSPass(false);
+    }
+    setPasswordData(value);
   };
-  const submited = (e: React.FormEvent) => {
+  const submited = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    if (emailData.value !== "" && passwordData.value !== "") {
+    if (emailData !== "" && passwordData !== "") {
       const validate = LOGIN?.filter((item) => {
-        if (
-          item?.email === emailData.value &&
-          item?.password === passwordData.value
-        ) {
+        if (item?.email === emailData && item?.password === passwordData) {
           return item?.token;
         } else {
           return null;
         }
+        return null;
       });
-      validate[0]?.token !== undefined
-        ? router.push("/dashboard")
-        : dedaError("Please enter correct email or password");
+      if(validate[0]?.token !== undefined)
+         router.push("/dashboard")
+      else
+         dedaError("Please enter correct email or password");
     } else {
       dedaError("Please fill in all fields");
     }
