@@ -13,8 +13,8 @@ type Books={
 }
 const BookItems = ({classValue, title, image, color, pages}:Books) => {
   return (
-    <Link href={`${pages}?classVal=${classValue}`} className='rounded-lg shadow-xl relative min-w-[33%] overflow-hidden py-5' style={{backgroundImage:`${color}`}}>
-        <Image alt="book" src={image} className='absolute top-0 w-full h-full blur-[5px]'/>
+    <Link href={`${pages}?classVal=${classValue}`} className='rounded-lg shadow-xl relative min-w-[calc(50%-16px)] overflow-hidden py-5 max-w-[calc(50%-16px)] box-border block w-[calc(50%-16px)]' style={{backgroundImage:`${color}`}}>
+        {image!==''&&<Image alt="book" src={image} className='absolute top-0 w-full h-full blur-[5px]'/>}
         <div className='h-full w-full flex flex-col relative z-10 justify-center items-center'>
          <LuBookOpenText className='text-3xl'/>
          <div className='text-sm font-medium text-stone-950'>{classValue}</div>

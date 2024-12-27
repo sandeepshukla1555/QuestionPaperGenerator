@@ -60,7 +60,7 @@ const bookList=[
   }
 ]
 const Books = () => {
-  return <div className="flex flex-none overflow-scroll gap-4 mt-2 px-4 scroll-width-none">
+  return <div className="flex flex-wrap mt-2 px-4 box-border gap-4 justify-center">
     {bookList?.map((item, i)=><BookItems key={i} classValue={item.class} title={''} image={''} color={item?.color} pages={'book/book-list'}/>)}
   </div>;
 };

@@ -5,11 +5,9 @@ import BookItems from '../book-items';
 const BookList = () => {
   const router = useRouter();
   const { classVal }:any = router.query;
-  console.log("=======:",classVal)
   const fielter=CLASS_SUBJECT.filter(((item:any)=>item.class===classVal&&item));
-  console.log("Filtered data",fielter)
   
-  return (<div className="flex flex-wrap gap-8 justify-center mt-2 px-4 scroll-width-none">
+  return (<div className="flex flex-wrap justify-center mt-2 px-4 box-border">
     {
         fielter[0]?.subject.map((item:any, i:any)=><BookItems key={i} classValue={item} title={''} image={''} color={''} pages={'book-list/chapter'}/>)
     }

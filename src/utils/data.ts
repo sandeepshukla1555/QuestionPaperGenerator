@@ -41,37 +41,16 @@ export const CLASS_SUBJECT: Subject[] = [
   {
     class: "class-1",
     color:
-      "linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)",
+      "linear-gradient(0deg, rgba(195,34,116,1) 0%, rgba(253,100,45,1) 100%)",
     subject: [
-      {
-        subject: "Hindi",
-        chapter: [
-          {
-            title: "Chapter-1",
-            contents: [
-              {
-                Paragraph: "paragraph-1",
-                description: "",
-              },
-              {
-                Paragraph: "paragraph-2",
-                description: "",
-              },
-              {
-                Paragraph: "paragraph-3",
-                description: "",
-              },
-            ],
-          },
-        ],
-      },
-      { subject: "English" },
-      { subject: "Geography" },
-      { subject: "Math" },
-      { subject: "Phycology" },
-      { subject: "Art" },
-      { subject: "History" },
-      { subject: "Computer" },
+      "Hindi",
+      "English",
+      "Geography",
+      "Math",
+      "Phycology",
+      "Art",
+      "History",
+      "Computer",
     ],
   },
   {
