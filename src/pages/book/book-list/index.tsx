@@ -13,7 +13,7 @@ const BookList = () => {
   };
   return (
     <div className="relative">
-      <div className="bg-black h-24 relative w-full z-10">
+      <div className="bg-brand/70 h-32 relative w-full z-10">
         <div className="flex justify-between items-center px-4">
           <div className="text-lg text-stone-100 font-bold pt-3 mb-3 underline underline-offset-3">
             Choose a Subject:
@@ -27,7 +27,7 @@ const BookList = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white absolute rounded-t-lg w-[95%] mx-auto z-20 top-12 left-1/2 transform -translate-x-1/2">
+      <div className="bg-white absolute rounded-t-lg w-[95%] mx-auto z-20 top-20 left-1/2 transform -translate-x-1/2">
         <div className="flex flex-wrap mt-2 px-4 box-border gap-4 justify-center pb-6">
           {fielter[0]?.subject.map((item, i) => {
             return (
