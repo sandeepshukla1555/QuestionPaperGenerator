@@ -42,6 +42,13 @@ interface Subject {
   color: string;
 }
 
+export const CHAPTER_TYPE ={
+  BOOK:'BOOK',
+  VIDEO:'VIDEO',
+  ACTIVITY:'ACTIVITY',
+  PAPER_GENERATOR:'PAPER_GENERATOR',
+}
+
 export const CLASS_SUBJECT: Subject[] = [
   {
     class: "class-1",
