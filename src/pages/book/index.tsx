@@ -59,7 +59,7 @@ const Books = () => {
           title={""}
           image={""}
           colors={generateRandomHexColor()}
-          pages={"book/book-list"}
+          pages={`book/book-list?val=${item.class}&`}
         />
       ))}
     </div>
