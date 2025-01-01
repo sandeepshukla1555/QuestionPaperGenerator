@@ -6,11 +6,11 @@ import Link from "next/link";
 
 const GPG = () => {
   return (
-    <div className="relative h-screen pt-20">
+    <div className="relative h-screen">
       <Image className="w-4/5 mx-auto" alt="Welcome Hero" src={welcomeHero} />
-      <div className="text-center absolute bottom-0 w-full h-[400px]">
+      <div className="text-center absolute bottom-0 w-full h-[80%]">
         <Image
-          className="relative h-[400px]"
+          className="relative h-full"
           alt="Welcome Banner"
           src={welcomeBanner}
         />
