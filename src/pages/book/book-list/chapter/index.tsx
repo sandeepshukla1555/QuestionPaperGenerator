@@ -16,25 +16,30 @@ const Chapter: React.FC = () => {
   const [selectedChapterIndex, setSelectedChapterIndex] = useState<number>(0);
   const [isChapterSelected, setIsChapterSelected] = useState<boolean>(false);
   const [lessions, setLessions] = useState<ChapterProps[]>([]);
+
   const { val, route } = router.query;
 
+  // Filter subjects based on class and subject
   const filteredSubjects =
     CLASS_SUBJECT?.filter((item) => item.class === route) || [];
   const filteredChapters =
     filteredSubjects[0]?.subject?.filter((subj) => subj.subject === val) || [];
   const selectedChapter = filteredChapters[selectedChapterIndex];
 
+  // Populate lessons for a given chapter
   const postLession = (lession: string | number) => {
     const getLession = filteredChapters[0]?.chapter?.filter(
       (item) => item.lession === lession
     );
-    setLessions(getLession);
+    setLessions(getLession || []);
   };
 
+  // Navigate back to the previous page
   const handleGoBack = () => {
-    router.back(); // Navigates to the previous page
+    router.back();
   };
 
+  // Handle popup display for selected chapter
   const handlePopup = (index: number, lession: string | number) => {
     setSelectedChapterIndex(index);
     setIsChapterSelected(true);
@@ -48,7 +53,7 @@ const Chapter: React.FC = () => {
           <div className="flex justify-between">
             <div>
               <div className="text-sm font-semibold mb-1 capitalize">
-                {route}
+                {route || "Unknown Route"}
               </div>
               <div className="text-sm font-medium mb-4">Select a Lesson:</div>
             </div>
@@ -60,16 +65,22 @@ const Chapter: React.FC = () => {
               Back
             </div>
           </div>
-          {filteredChapters[0]?.chapter?.map((chapter, index) => (
-            <div
-              key={chapter.lession}
-              className="text-stone-800 py-3 px-4 rounded-md shadow-lg mb-5"
-              style={{ background: generateRandomHexColor() }}
-              onClick={() => handlePopup(index, chapter.lession)}
-            >
-              Lesson - {chapter.lession}
+          {filteredChapters[0]?.chapter?.length ? (
+            filteredChapters[0].chapter.map((chapter, index) => (
+              <div
+                key={chapter.lession}
+                className="text-stone-800 py-3 px-4 rounded-md shadow-lg mb-5"
+                style={{ background: generateRandomHexColor() }}
+                onClick={() => handlePopup(index, chapter.lession)}
+              >
+                Lesson - {chapter.lession}
+              </div>
+            ))
+          ) : (
+            <div className="text-sm text-gray-500">
+              No chapters available for the selected subject.
             </div>
-          ))}
+          )}
         </div>
       ) : (
         <ChapterPopup
