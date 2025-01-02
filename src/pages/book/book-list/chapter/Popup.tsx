@@ -44,8 +44,8 @@ const ChapterPopup: React.FC<ChapterPopupProps> = ({
   return (
     <div>
       {type === "" ? (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full min-h-full bg-black/90 flex justify-center items-center">
-          <div className="min-h-[80%] bg-white w-4/5 p-2 rounded-sm shadow-zinc-100/20 shadow-lg">
+        <div className="absolute bg-stone-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full min-h-full flex justify-center items-center">
+          <div className="min-h-[80%] bg-white w-4/5 p-2 rounded-sm shadow-stone-800/20 shadow-2xl">
             <div className="flex justify-between items-center pb-2 mb-4 border-b border-b-slate-300">
               <h3 className="text-lg font-semibold">Chapter Popup</h3>
               <button
