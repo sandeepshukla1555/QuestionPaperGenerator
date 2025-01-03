@@ -2,6 +2,8 @@ import React from "react";
 import ChapterContentBookType from "./ChapterContentType";
 import { IoIosArrowBack } from "react-icons/io";
 import ChapterActivity from "./Activity";
+import activityBg from "../../../images/activity_bg.png";
+import Image from "next/image";
 
 interface ChapterProps {
   lession: string | number;
@@ -47,15 +49,13 @@ const BookView: React.FC<BookViewProps> = ({
         );
       case "ACTIVITY":
         return (
-          <div className="bg-stone-900 h-screen">
-            <ChapterHeader
-              setType={setType}
-              val={val}
-              route={route}
-              lessions={lessions}
-              types={types}
+          <div className="h-screen relative">
+            <Image
+              className="absolute w-full h-full"
+              src={activityBg}
+              alt="dfghjk"
             />
-            <ChapterActivity lessions={lessions} />
+              <ChapterActivity lessions={lessions} />
           </div>
         );
       case "VIDEO":
@@ -68,7 +68,9 @@ const BookView: React.FC<BookViewProps> = ({
               lessions={lessions}
               types={types}
             />
-            <div className="text-center text-white mt-4">Coming Soon: Video</div>
+            <div className="text-center text-white mt-4">
+              Coming Soon: Video
+            </div>
           </>
         );
       case "PAPER_GENERATOR":

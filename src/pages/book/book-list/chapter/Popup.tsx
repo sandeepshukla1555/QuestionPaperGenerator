@@ -57,7 +57,7 @@ const ChapterPopup: React.FC<ChapterPopupProps> = ({
             </div>
             <div className="flex flex-col gap-4">
               <PopupOption
-                label="Book"
+                label="Read"
                 icon={<LuBookMinus />}
                 setType={setType}
                 typeValue="BOOK"
